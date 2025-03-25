@@ -1,0 +1,22 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "cleanOutputDir": true,
+  "disableSources": true,
+  "hideGenerator": true,
+  "excludeInternal": true,
+  "jsDocCompatibility": true,
+  "logLevel": "Warn",
+  "readme": "none",
+  "sort": [
+    "kind",
+    "instance-first",
+    "alphabetical"
+  ],
+  "plugin": [
+    "typedoc-plugin-markdown",
+    "typedoc-plugin-mdn-links",
+    "typedoc-plugin-missing-exports"
+  ],
+  "theme": "default",
+  "useTsLinkResolution": true
+}

@@ -1,6 +1,6 @@
 {
   "extends": [
-    "@tsconfig/strictest/tsconfig.json",
+    "@local/configs/tsconfig.base.json",
     "@tsconfig/node22/tsconfig.json"
   ],
   "compilerOptions": {
@@ -21,7 +21,9 @@
     "noUnusedParameters": false,
     "exactOptionalPropertyTypes": true,
     "composite": false,
-    "stripInternal": false
+    "stripInternal": false,
+    "noEmit": false,
+    "declaration": true
   },
   "exclude": [
     "node_modules",
@@ -29,8 +31,7 @@
     "test/fixtures"
   ],
   "include": [
-    "src",
-    "tests",
-    "*.config.ts"
+    "*.ts",
+    "*.d.ts"
   ]
 }

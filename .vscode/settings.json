@@ -1,0 +1,41 @@
+{
+  "[json]": {
+    "editor.defaultFormatter": "dprint.dprint"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "dprint.dprint"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "dprint.dprint"
+  },
+  "[yaml]": {
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.autoIndent": "keep",
+    "editor.defaultFormatter": "dprint.dprint",
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2
+  },
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "yaml",
+    "markdown",
+    "mdx",
+    "github-actions-workflow" // for GitHub Actions workflow files
+  ],
+  "eslint.workingDirectories": [
+    {
+      "changeProcessCWD": true,
+      "mode": "auto"
+    }
+  ],
+  "files.exclude": {
+    "*.bundled_*.mjs": true
+  },
+  "mdx.server.enable": true,
+  "npm.packageManager": "pnpm",
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+  "typescript.tsdk": "node_modules/typescript/lib"
+}
