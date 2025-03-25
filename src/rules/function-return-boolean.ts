@@ -20,7 +20,7 @@ export type Options = [
 
 export const defaultOptions: Options = [
   {
-    pattern: "is[A-Z].*",
+    pattern: "/^is[A-Z].*/u",
   },
 ];
 
@@ -28,7 +28,7 @@ export default createRule<Options, MessageID>({
   meta: {
     type: "problem",
     docs: {
-      description: "Enforce functions that match the pattern `is[A-Z].*` return a boolean.",
+      description: "Enforce functions that match the pattern `/^is[A-Z].*/` return a boolean.",
       [Symbol.for("rule_features")]: RULE_FEATURES,
     },
     messages: {

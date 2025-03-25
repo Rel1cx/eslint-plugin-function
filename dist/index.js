@@ -2,7 +2,7 @@ import { ESLintUtils } from '@typescript-eslint/utils';
 
 // package.json
 var name = "eslint-plugin-function";
-var version = "0.0.1";
+var version = "0.0.2";
 function getDocsUrl() {
   return "TODO: add docs for local ESLint rules";
 }
@@ -36,14 +36,14 @@ var RULE_NAME2 = "function-return-boolean";
 var RULE_FEATURES2 = [];
 var defaultOptions = [
   {
-    pattern: "is[A-Z].*"
+    pattern: "/^is[A-Z].*/u"
   }
 ];
 var function_return_boolean_default = createRule({
   meta: {
     type: "problem",
     docs: {
-      description: "Enforce functions that match the pattern `is[A-Z].*` return a boolean.",
+      description: "Enforce functions that match the pattern `/^is[A-Z].*/` return a boolean.",
       [Symbol.for("rule_features")]: RULE_FEATURES2
     },
     messages: {
