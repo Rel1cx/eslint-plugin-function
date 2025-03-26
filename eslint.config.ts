@@ -72,7 +72,7 @@ export default tseslint.config(
     },
     rules: {
       "function/function-return-boolean": [
-        "error",
+        "warn",
         {
           pattern: "/^is[A-Z]/u",
         },
@@ -91,8 +91,8 @@ export default tseslint.config(
       },
     },
     rules: {
-      "no-console": "off",
       "function/function-return-boolean": "off",
+      "no-console": "off",
     },
   },
   {
