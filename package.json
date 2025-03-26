@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-function",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "(WIP) The ESLint plugin for function-related rules.",
   "license": "MIT",
   "sideEffects": false,
