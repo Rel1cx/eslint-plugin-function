@@ -6,7 +6,7 @@ declare const _default: {
         readonly version: string;
     };
     readonly rules: {
-        readonly "function-definition": _typescript_eslint_utils_ts_eslint.RuleModule<CamelCase<"function-definition">, [], unknown, _typescript_eslint_utils_ts_eslint.RuleListener>;
+        readonly "function-definition": _typescript_eslint_utils_ts_eslint.RuleModule<"functionDefinition", [], unknown, _typescript_eslint_utils_ts_eslint.RuleListener>;
         readonly "function-return-boolean": _typescript_eslint_utils_ts_eslint.RuleModule<"functionReturnBoolean", readonly [{
             readonly pattern?: string;
         } | undefined], unknown, _typescript_eslint_utils_ts_eslint.RuleListener>;
