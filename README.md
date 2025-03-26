@@ -1,9 +1,9 @@
 # eslint-plugin-function
 
+The ESLint plugin for function-related rules.
+
 > [!WARNING]
 > This package is a work in progress and is not yet ready for production use.
-
-The ESLint plugin for function-related rules.
 
 ## Installation
 
