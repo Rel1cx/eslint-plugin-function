@@ -2,6 +2,7 @@
   "name": "eslint-plugin-function",
   "version": "0.0.7",
   "description": "(WIP) The ESLint plugin for function-related rules.",
+  "license": "MIT",
   "sideEffects": false,
   "type": "module",
   "exports": {
@@ -12,12 +13,20 @@
   },
   "files": [
     "dist",
+    "LICENSE",
     "package.json"
   ],
   "scripts": {
     "build": "tsup",
+    "build:pkgs": "pnpm -F \"./.pkgs/*\" run build",
+    "format:check": "dprint check",
+    "format:package-json": "pnpm m exec sort-package-json -q package.json && dprint fmt",
+    "format:write": "dprint fmt",
+    "lint:deps": "skott -m file-tree -e .ts -s",
+    "lint:es": "eslint . --max-warnings 10",
     "lint:publish": "publint",
-    "lint:ts": "tsc --noEmit"
+    "lint:ts": "tsc --noEmit",
+    "test": "vitest"
   },
   "dependencies": {
     "@eslint-react/ast": "^1.38.0",
@@ -41,16 +50,17 @@
     "eslint-config-flat-gitignore": "^2.1.0",
     "eslint-plugin-vitest": "^0.5.4",
     "jiti": "^2.4.2",
+    "publint": "^0.3.9",
     "tsup": "^8.4.0",
     "typescript-eslint": "^8.28.0",
     "vitest": "^3.0.9"
   },
   "peerDependencies": {
-    "eslint": "^8.57.0 || ^9.0.0",
+    "eslint": "^9.0.0",
     "ts-api-utils": "^2.1.0",
-    "typescript": "^4.9.5 || ^5.3.3"
+    "typescript": "^5.8.2"
   },
-  "packageManager": "pnpm@10.6.5",
+  "packageManager": "pnpm@10.7.0",
   "engines": {
     "bun": ">=1.0.15",
     "node": ">=18.18.0"
