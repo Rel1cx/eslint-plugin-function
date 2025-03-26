@@ -19,7 +19,7 @@ ruleTester.run("function-return-boolean", functionReturnType, {
   invalid: [
     {
       code: tsx`
-        function isValid(value: string): boolean {
+        function isValid(value: string) {
           return undefined;
         }
       `,
@@ -37,7 +37,7 @@ ruleTester.run("function-return-boolean", functionReturnType, {
   valid: [
     {
       code: tsx`
-        function isValid(value: string): boolean {
+        function isValid(value: string) {
           return value.length > 0;
         }
       `,
