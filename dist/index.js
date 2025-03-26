@@ -3,7 +3,9 @@ import { unionConstituents, isTypeFlagSet, isTrueLiteralType, isFalseLiteralType
 import { match, isMatching, P } from 'ts-pattern';
 import ts from 'typescript';
 import * as AST from '@eslint-react/ast';
+import '@eslint-react/eff';
 import { getConstrainedTypeAtLocation } from '@typescript-eslint/type-utils';
+import { AST_NODE_TYPES } from '@typescript-eslint/types';
 
 // package.json
 var name = "eslint-plugin-function";
@@ -125,9 +127,10 @@ function create(context) {
 }
 var RULE_NAME2 = "function-return-boolean";
 var RULE_FEATURES2 = [];
+var defaultPattern = "/^(is|should)/u";
 var defaultOptions = [
   {
-    pattern: "/^is[A-Z].*/u"
+    pattern: defaultPattern
   }
 ];
 var allowedVariants = [
@@ -139,11 +142,11 @@ var function_return_boolean_default = createRule({
   meta: {
     type: "problem",
     docs: {
-      description: "Enforce functions that match the pattern `/^is[A-Z].*/` return a boolean.",
+      description: "Enforce functions that match the pattern `/^(is|should)/u` return a boolean.",
       [Symbol.for("rule_features")]: RULE_FEATURES2
     },
     messages: {
-      functionReturnBoolean: "The function '{{name}}' should return a boolean value (got {{variants}})."
+      functionReturnBoolean: "The function '{{functionName}}' should return a boolean value (got {{variants}})."
     },
     schema: [{
       type: "object",
@@ -162,37 +165,58 @@ var function_return_boolean_default = createRule({
 });
 function create2(context, [opts]) {
   const services = ESLintUtils.getParserServices(context, false);
-  const pattern = toRegExp(opts?.pattern ?? "/^is[A-Z].*/u");
-  const functions = [];
+  const pattern = toRegExp(opts?.pattern ?? defaultPattern);
+  const functionEntries = [];
+  function handleReturnExpression(context2, returnExpression, onViolation) {
+    if (returnExpression == null) {
+      onViolation(returnExpression, { variants: "nullish" });
+      return;
+    }
+    const returnType = getConstrainedTypeAtLocation(services, returnExpression);
+    const parts = inspectVariantTypes(unionConstituents(returnType));
+    if (allowedVariants.some((variant) => parts.has(variant))) return;
+    onViolation(returnExpression, {
+      variants: [...parts].map((part) => `'${part}'`).join(", ")
+    });
+  }
   return {
     [":function"](node) {
-      functions.push(node);
+      const functionName = AST.getFunctionIdentifier(node)?.name;
+      const isMatched = functionName != null && pattern.test(functionName);
+      functionEntries.push({ functionName, functionNode: node, isMatched });
     },
     [":function:exit"]() {
-      functions.pop();
+      functionEntries.pop();
     },
-    ["ArrowFunctionExpression[type][body.type!='BlockStatement']"](node) {
+    ["ArrowFunctionExpression"](node) {
+      const { functionName, isMatched = false } = functionEntries.at(-1) ?? {};
+      if (functionName == null || !isMatched) return;
+      if (node.body.type === AST_NODE_TYPES.BlockStatement) return;
+      handleReturnExpression(context, node.body, (expr, data) => {
+        context.report({
+          messageId: "functionReturnBoolean",
+          node: expr ?? node,
+          data: {
+            ...data,
+            functionName
+          }
+        });
+      });
     },
     ["ReturnStatement"](node) {
-      const functionNode = functions.at(-1);
-      if (functionNode == null) return;
-      const functionName = AST.getFunctionIdentifier(functionNode)?.name;
-      if (functionName == null) return;
-      if (!pattern.test(functionName)) return;
-      if (node.argument == null) {
-        context.report({ messageId: "functionReturnBoolean", node });
-        return;
-      }
-      const returnType = getConstrainedTypeAtLocation(services, node.argument);
-      const parts = inspectVariantTypes(unionConstituents(returnType));
-      if (allowedVariants.some((variant) => parts.has(variant))) return;
-      context.report({
-        messageId: "functionReturnBoolean",
-        node,
-        data: {
-          name: functionName,
-          variants: [...parts].map((part) => `'${part}'`).join(", ")
-        }
+      const { functionName, functionNode, isMatched = false } = functionEntries.at(-1) ?? {};
+      if (functionName == null || functionNode == null || !isMatched) return;
+      handleReturnExpression(context, node.argument, (expr, data) => {
+        const functionName2 = AST.getFunctionIdentifier(functionNode)?.name;
+        if (functionName2 == null) return;
+        context.report({
+          messageId: "functionReturnBoolean",
+          node: expr ?? node.argument ?? node,
+          data: {
+            ...data,
+            functionName: functionName2
+          }
+        });
       });
     }
   };

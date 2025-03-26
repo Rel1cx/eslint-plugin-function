@@ -74,7 +74,7 @@ export default tseslint.config(
       "function/function-return-boolean": [
         "warn",
         {
-          pattern: "/^is[A-Z]/u",
+          pattern: "/^(is|should)/u",
         },
       ],
     },
