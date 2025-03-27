@@ -125,8 +125,31 @@ var function_definition_default = createRule({
 function create(context) {
   return {};
 }
-var RULE_NAME2 = "function-return-boolean";
+
+// src/rules/function-name.ts
+var RULE_NAME2 = "function-name";
 var RULE_FEATURES2 = [];
+var function_name_default = createRule({
+  meta: {
+    type: "problem",
+    docs: {
+      description: "Enforce a consistent function naming style.",
+      [Symbol.for("rule_features")]: RULE_FEATURES2
+    },
+    messages: {
+      functionName: ""
+    },
+    schema: []
+  },
+  name: RULE_NAME2,
+  create: create2,
+  defaultOptions: []
+});
+function create2(context) {
+  return {};
+}
+var RULE_NAME3 = "function-return-boolean";
+var RULE_FEATURES3 = [];
 var defaultPattern = "/^(is|should)/u";
 var defaultOptions = [
   {
@@ -143,7 +166,7 @@ var function_return_boolean_default = createRule({
     type: "problem",
     docs: {
       description: "Enforce functions that match the pattern `/^(is|should)/u` return a boolean.",
-      [Symbol.for("rule_features")]: RULE_FEATURES2
+      [Symbol.for("rule_features")]: RULE_FEATURES3
     },
     messages: {
       functionReturnBoolean: "The function '{{functionName}}' should return a boolean value (got {{variants}})."
@@ -159,11 +182,11 @@ var function_return_boolean_default = createRule({
       }
     }]
   },
-  name: RULE_NAME2,
-  create: create2,
+  name: RULE_NAME3,
+  create: create3,
   defaultOptions
 });
-function create2(context, [opts]) {
+function create3(context, [opts]) {
   const services = ESLintUtils.getParserServices(context, false);
   const pattern = toRegExp(opts?.pattern ?? defaultPattern);
   const functionEntries = [];
@@ -230,6 +253,7 @@ var index_default = {
   },
   rules: {
     "function-definition": function_definition_default,
+    "function-name": function_name_default,
     "function-return-boolean": function_return_boolean_default
   }
 };

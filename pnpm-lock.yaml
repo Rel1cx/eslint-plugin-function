@@ -29,6 +29,9 @@ importers:
       '@typescript-eslint/utils':
         specifier: ^8.28.0
         version: 8.28.0(eslint@9.23.0(jiti@2.4.2))(typescript@5.8.2)
+      string-ts:
+        specifier: ^2.2.1
+        version: 2.2.1
       ts-api-utils:
         specifier: ^2.1.0
         version: 2.1.0(typescript@5.8.2)

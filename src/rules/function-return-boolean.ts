@@ -1,9 +1,10 @@
 import type { RuleContext, RuleFeature } from "@eslint-react/kit";
 import type { RuleListener } from "@typescript-eslint/utils/ts-eslint";
+import type { CamelCase } from "string-ts";
 import * as AST from "@eslint-react/ast";
 import { type _ } from "@eslint-react/eff";
-import { getConstrainedTypeAtLocation } from "@typescript-eslint/type-utils";
 
+import { getConstrainedTypeAtLocation } from "@typescript-eslint/type-utils";
 import { AST_NODE_TYPES as T, type TSESTree } from "@typescript-eslint/types";
 import { ESLintUtils } from "@typescript-eslint/utils";
 import { unionConstituents } from "ts-api-utils";
@@ -13,7 +14,7 @@ export const RULE_NAME = "function-return-boolean";
 
 export const RULE_FEATURES = [] as const satisfies RuleFeature[];
 
-export type MessageID = "functionReturnBoolean";
+export type MessageID = CamelCase<typeof RULE_NAME>;
 
 type Options = readonly [
   | _

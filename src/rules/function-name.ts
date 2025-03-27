@@ -6,7 +6,7 @@ import type { RuleListener } from "@typescript-eslint/utils/ts-eslint";
 import type { CamelCase } from "string-ts";
 import { createRule } from "../utils";
 
-export const RULE_NAME = "function-definition";
+export const RULE_NAME = "function-name";
 
 export const RULE_FEATURES = [] as const satisfies RuleFeature[];
 
@@ -16,11 +16,11 @@ export default createRule<[], MessageID>({
   meta: {
     type: "problem",
     docs: {
-      description: "Enforce a consistent function definition style.",
+      description: "Enforce a consistent function naming style.",
       [Symbol.for("rule_features")]: RULE_FEATURES,
     },
     messages: {
-      functionDefinition: "",
+      functionName: "",
     },
     schema: [],
   },
