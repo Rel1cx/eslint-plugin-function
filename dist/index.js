@@ -150,7 +150,7 @@ function create2(context) {
 }
 var RULE_NAME3 = "function-return-boolean";
 var RULE_FEATURES3 = [];
-var defaultPattern = "/^(is|should)/u";
+var defaultPattern = "/^(is|has|should)/u";
 var defaultOptions = [
   {
     pattern: defaultPattern
@@ -165,7 +165,7 @@ var function_return_boolean_default = createRule({
   meta: {
     type: "problem",
     docs: {
-      description: "Enforce functions that match the pattern `/^(is|should)/u` return a boolean.",
+      description: `Enforce functions that match the pattern \`${defaultPattern}\` return a boolean.`,
       [Symbol.for("rule_features")]: RULE_FEATURES3
     },
     messages: {

@@ -23,10 +23,12 @@
     "format:check": "dprint check",
     "format:package-json": "pnpm m exec sort-package-json -q package.json && dprint fmt",
     "format:write": "dprint fmt",
+    "lint": "pnpm run lint:deps && pnpm run lint:es && pnpm run lint:ts && pnpm run lint:publish",
     "lint:deps": "skott -m file-tree -e .ts -s",
     "lint:es": "eslint . --max-warnings 10",
     "lint:publish": "publint",
     "lint:ts": "tsc --noEmit",
+    "publish": "pnpm run format:package-json",
     "test": "vitest"
   },
   "dependencies": {
@@ -53,12 +55,13 @@
     "eslint-plugin-vitest": "^0.5.4",
     "jiti": "^2.4.2",
     "publint": "^0.3.9",
+    "skott": "^0.35.4",
     "tsup": "^8.4.0",
     "typescript-eslint": "^8.28.0",
     "vitest": "^3.0.9"
   },
   "peerDependencies": {
-    "eslint": "^9.0.0",
+    "eslint": "^9.23.0",
     "ts-api-utils": "^2.1.0",
     "typescript": "^5.8.2"
   },

@@ -23,7 +23,7 @@ type Options = readonly [
   },
 ];
 
-const defaultPattern = "/^(is|should)/u";
+const defaultPattern = "/^(is|has|should)/u";
 
 export const defaultOptions = [
   {
@@ -31,7 +31,7 @@ export const defaultOptions = [
   },
 ] as const satisfies Options;
 
-// Allowed left node type variants
+// Allowed return expression type variants
 const allowedVariants = [
   "boolean",
   "falsy boolean",
@@ -42,7 +42,7 @@ export default createRule<Options, MessageID>({
   meta: {
     type: "problem",
     docs: {
-      description: "Enforce functions that match the pattern `/^(is|should)/u` return a boolean.",
+      description: `Enforce functions that match the pattern \`${defaultPattern}\` return a boolean.`,
       [Symbol.for("rule_features")]: RULE_FEATURES,
     },
     messages: {
