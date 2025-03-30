@@ -26,7 +26,7 @@ export default tseslint.config({
   files: ["**/*.ts", "**/*.tsx"],
   extends: [
     eslintJs.configs.recommended,
-    tseslint.configs.recommended,
+    tseslint.configs["recommended-type-checked"],
   ],
   plugins: {
     function: pluginFunction,
