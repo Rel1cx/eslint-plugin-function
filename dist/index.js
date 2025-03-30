@@ -9,7 +9,7 @@ import { AST_NODE_TYPES } from '@typescript-eslint/types';
 
 // package.json
 var name = "eslint-plugin-function";
-var version = "0.0.10";
+var version = "0.0.11";
 function getDocsUrl() {
   return "TODO: add docs for local ESLint rules";
 }
