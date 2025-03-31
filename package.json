@@ -32,13 +32,13 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@eslint-react/ast": "^1.38.4",
-    "@eslint-react/eff": "^1.38.4",
-    "@eslint-react/kit": "^1.38.4",
-    "@typescript-eslint/scope-manager": "^8.28.0",
-    "@typescript-eslint/type-utils": "^8.28.0",
-    "@typescript-eslint/types": "^8.28.0",
-    "@typescript-eslint/utils": "^8.28.0",
+    "@eslint-react/ast": "^1.40.0",
+    "@eslint-react/eff": "^1.40.0",
+    "@eslint-react/kit": "^1.40.0",
+    "@typescript-eslint/scope-manager": "^8.29.0",
+    "@typescript-eslint/type-utils": "^8.29.0",
+    "@typescript-eslint/types": "^8.29.0",
+    "@typescript-eslint/utils": "^8.29.0",
     "string-ts": "^2.2.1",
     "ts-pattern": "^5.7.0"
   },
@@ -48,7 +48,7 @@
     "@tsconfig/node22": "^22.0.1",
     "@tsconfig/strictest": "^2.0.5",
     "@types/node": "^22.13.14",
-    "@typescript-eslint/rule-tester": "^8.28.0",
+    "@typescript-eslint/rule-tester": "^8.29.0",
     "dedent": "^1.5.3",
     "eslint": "^9.23.0",
     "eslint-config-flat-gitignore": "^2.1.0",
@@ -57,8 +57,8 @@
     "publint": "^0.3.9",
     "skott": "^0.35.4",
     "tsup": "^8.4.0",
-    "typescript-eslint": "^8.28.0",
-    "vitest": "^3.0.9"
+    "typescript-eslint": "^8.29.0",
+    "vitest": "^3.1.1"
   },
   "peerDependencies": {
     "eslint": "^9.23.0",
@@ -77,7 +77,7 @@
       "esbuild"
     ],
     "overrides": {
-      "esbuild": "^0.25.1",
+      "esbuild": "^0.25.2",
       "is-core-module": "npm:@socketregistry/is-core-module@^1.0.8",
       "safe-buffer": "npm:@socketregistry/safe-buffer@^1.0.7",
       "safer-buffer": "npm:@socketregistry/safer-buffer@^1.0.8",
