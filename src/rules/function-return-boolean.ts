@@ -33,6 +33,7 @@ export const defaultOptions = [
 
 // Allowed return expression type variants
 const allowedVariants = [
+  "never",
   "boolean",
   "falsy boolean",
   "truthy boolean",
@@ -79,8 +80,8 @@ export function create(context: RuleContext<MessageID, Options>, [opts]: Options
       return;
     }
     const returnType = getConstrainedTypeAtLocation(services, returnExpression);
-    const parts = inspectVariantTypes(unionConstituents(returnType));
-    if (allowedVariants.some((variant) => parts.has(variant))) return;
+    const parts = [...inspectVariantTypes(unionConstituents(returnType))];
+    if (parts.every((part) => allowedVariants.some((allowed) => part === allowed))) return;
     onViolation(returnExpression, {
       variants: [...parts]
         .map((part) => `'${part}'`)

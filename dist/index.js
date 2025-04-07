@@ -9,7 +9,7 @@ import { AST_NODE_TYPES } from '@typescript-eslint/types';
 
 // package.json
 var name = "eslint-plugin-function";
-var version = "0.0.12";
+var version = "0.0.13";
 function getDocsUrl() {
   return "TODO: add docs for local ESLint rules";
 }
@@ -157,6 +157,7 @@ var defaultOptions = [
   }
 ];
 var allowedVariants = [
+  "never",
   "boolean",
   "falsy boolean",
   "truthy boolean"
@@ -196,8 +197,8 @@ function create3(context, [opts]) {
       return;
     }
     const returnType = getConstrainedTypeAtLocation(services, returnExpression);
-    const parts = inspectVariantTypes(unionConstituents(returnType));
-    if (allowedVariants.some((variant) => parts.has(variant))) return;
+    const parts = [...inspectVariantTypes(unionConstituents(returnType))];
+    if (parts.every((part) => allowedVariants.some((allowed) => part === allowed))) return;
     onViolation(returnExpression, {
       variants: [...parts].map((part) => `'${part}'`).join(", ")
     });

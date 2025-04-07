@@ -4,6 +4,5 @@ export default defineConfig({
   test: {
     exclude: [...configDefaults.exclude],
     globals: true,
-    include: ["tests/*.test.ts"],
   },
 });
