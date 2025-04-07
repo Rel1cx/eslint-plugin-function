@@ -14,14 +14,14 @@ importers:
   .:
     dependencies:
       '@eslint-react/ast':
-        specifier: ^1.40.3
-        version: 1.40.3(eslint@9.24.0(jiti@2.4.2))(typescript@5.8.3)
+        specifier: ^1.40.5-beta.0
+        version: 1.40.5-next.0(eslint@9.24.0(jiti@2.4.2))(typescript@5.8.3)
       '@eslint-react/eff':
-        specifier: ^1.40.3
-        version: 1.40.3
+        specifier: ^1.40.5-beta.0
+        version: 1.40.5-next.0
       '@eslint-react/kit':
-        specifier: ^1.40.3
-        version: 1.40.3(eslint@9.24.0(jiti@2.4.2))(typescript@5.8.3)
+        specifier: ^1.40.5-beta.0
+        version: 1.40.5-next.0(eslint@9.24.0(jiti@2.4.2))(typescript@5.8.3)
       '@typescript-eslint/scope-manager':
         specifier: ^8.29.0
         version: 8.29.0
@@ -326,16 +326,16 @@ packages:
     resolution: {integrity: sha512-CCZCDJuduB9OUkFkY2IgppNZMi2lBQgD2qzwXkEia16cge2pijY/aXi96CJMquDMn3nJdlPV1A5KrJEXwfLNzQ==}
     engines: {node: ^12.0.0 || ^14.0.0 || >=16.0.0}
 
-  '@eslint-react/ast@1.40.3':
-    resolution: {integrity: sha512-+G1T3+2Sbs0USMA2iUsaQ+0QyGST0/RGMO1WtdqgVsihKleIBThMmJvWL2pnrmgs1ysbWWc5t9C2VQwqisGdYQ==}
+  '@eslint-react/ast@1.40.5-next.0':
+    resolution: {integrity: sha512-U4bbEx4Ff0BnzKGmkcrToLE17NyvlN24evNoreJjEfTvglRZsXkkS/uwxwQSlQL063eAXGJ9w21FW31IQv2eDA==}
     engines: {bun: '>=1.0.15', node: '>=18.18.0'}
 
-  '@eslint-react/eff@1.40.3':
-    resolution: {integrity: sha512-+Gx3HR0r4OtiNRV4NU49sGc3XNde9K3330Aqzj6yKgR2h3N4xQm8VjKsQ6HrHZJFEnWr9VrtmMXi8uLtBRyy3w==}
+  '@eslint-react/eff@1.40.5-next.0':
+    resolution: {integrity: sha512-Cc7OIQbk45oo3qehJy6yKGSR173jCBahcd5l266JzQ6DnNrdRKIG6N/oEvVPsDXLKqCcctO9hUghHZfkBegR2A==}
     engines: {bun: '>=1.0.15', node: '>=18.18.0'}
 
-  '@eslint-react/kit@1.40.3':
-    resolution: {integrity: sha512-pI4/NLuynjJGh94OFQmCvNCgesKpLoSQ9vkOk6+k1gVHYTZlsIlNKk//Xtk3IsnxV9Pqy6oSdLIKgTseZWnjJQ==}
+  '@eslint-react/kit@1.40.5-next.0':
+    resolution: {integrity: sha512-dUBbtMHw8oLLQ/NkrkhEfCM+AeKVWS8+NzDVaiPF+KNzKberJRdedPDbkPWuzos94GufW7iOAhDIbfwtYOE+Wg==}
     engines: {bun: '>=1.0.15', node: '>=18.18.0'}
 
   '@eslint/compat@1.2.7':
@@ -2582,9 +2582,9 @@ snapshots:
 
   '@eslint-community/regexpp@4.12.1': {}
 
-  '@eslint-react/ast@1.40.3(eslint@9.24.0(jiti@2.4.2))(typescript@5.8.3)':
+  '@eslint-react/ast@1.40.5-next.0(eslint@9.24.0(jiti@2.4.2))(typescript@5.8.3)':
     dependencies:
-      '@eslint-react/eff': 1.40.3
+      '@eslint-react/eff': 1.40.5-next.0
       '@typescript-eslint/types': 8.29.0
       '@typescript-eslint/typescript-estree': 8.29.0(typescript@5.8.3)
       '@typescript-eslint/utils': 8.29.0(eslint@9.24.0(jiti@2.4.2))(typescript@5.8.3)
@@ -2595,11 +2595,11 @@ snapshots:
       - supports-color
       - typescript
 
-  '@eslint-react/eff@1.40.3': {}
+  '@eslint-react/eff@1.40.5-next.0': {}
 
-  '@eslint-react/kit@1.40.3(eslint@9.24.0(jiti@2.4.2))(typescript@5.8.3)':
+  '@eslint-react/kit@1.40.5-next.0(eslint@9.24.0(jiti@2.4.2))(typescript@5.8.3)':
     dependencies:
-      '@eslint-react/eff': 1.40.3
+      '@eslint-react/eff': 1.40.5-next.0
       '@typescript-eslint/utils': 8.29.0(eslint@9.24.0(jiti@2.4.2))(typescript@5.8.3)
       ts-pattern: 5.7.0
       valibot: 1.0.0(typescript@5.8.3)
