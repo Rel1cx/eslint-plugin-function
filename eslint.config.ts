@@ -6,7 +6,6 @@ import configFlatGitignore from "eslint-config-flat-gitignore";
 import pluginVitest from "eslint-plugin-vitest";
 import { globalIgnores } from "eslint/config";
 import tseslint from "typescript-eslint";
-import pluginFunction from "./dist";
 
 const dirname = url.fileURLToPath(new URL(".", import.meta.url));
 const GLOB_TS = ["*.{ts,tsx,cts,mts}", "**/*.{ts,tsx,cts,mts}"];
@@ -66,17 +65,6 @@ export default tseslint.config(
         tsconfigRootDir: dirname,
         // warnOnUnsupportedTypeScriptVersion: false,
       },
-    },
-    plugins: {
-      function: pluginFunction,
-    },
-    rules: {
-      "function/function-return-boolean": [
-        "warn",
-        {
-          pattern: "/^(is|should)/u",
-        },
-      ],
     },
   },
   {

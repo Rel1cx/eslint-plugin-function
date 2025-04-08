@@ -19,7 +19,7 @@ export type MessageID = CamelCase<typeof RULE_NAME>;
 type Options = readonly [
   | _
   | {
-    readonly pattern?: string; // eslint-disable-line no-restricted-syntax
+    readonly pattern?: string;
   },
 ];
 
